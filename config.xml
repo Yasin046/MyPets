@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="mt.edu.mcast.firstapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>FirstApp</name>
+    <description>Sample Apache Cordova App</description>
+    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+
+    <platform name="android">
+        <icon src="res/icon/android/images/MyPetPro.png" density="ldpi" background="res/icon/android/images/MyPetPro.png" foreground="res/icon/android/images/MyPetPro.png"/>
+        <icon src="res/icon/android/images/MyPetPro.png" density="mdpi" background="res/icon/android/images/MyPetPro.png" foreground="res/icon/android/images/MyPetPro.png"/>
+        <icon src="res/icon/android/images/MyPetPro.png" density="hdpi" background="res/icon/android/images/MyPetPro.png" foreground="res/icon/android/images/MyPetPro.png" />
+        <icon src="res/icon/android/images/MyPetPro.png" density="xhdpi" background="res/icon/android/images/MyPetPro.png" foreground="res/icon/android/images/MyPetPro.png"/>
+        <icon src="res/icon/android/images/MyPetPro.png" density="xxhdpi" background="res/icon/android/images/MyPetPro.png" foreground="res/icon/android/images/MyPetPro.png"/>
+        <icon src="res/icon/android/images/MyPetPro.png" density="xxxhdpi" background="res/icon/android/images/MyPetPro.png" foreground="res/icon/android/images/MyPetPro.png"/>
+    </platform>
+</widget>

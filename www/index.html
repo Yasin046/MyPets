@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, width=device-width, viewport-fit=cover"
+    />
+    <!-- <meta name="color-scheme" content="light dark" /> -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>MyPetsPro</title>
+  </head>
+  <body>
+    <ion-app id="devided">
+      <ion-tabs>
+        <ion-tab tab="list">
+          <ion-nav id="list-nav"></ion-nav>
+          <div id="list-page">
+            <ion-header>
+              <ion-toolbar class="new-colour">
+                <ion-title
+                  ><ion-icon name="paw-outline"></ion-icon> MyPets
+                  <ion-badge class="new-fab-colour" id="count"
+                    >0</ion-badge
+                  ></ion-title
+                >
+                <ion-icon
+                  name="moon"
+                  slot="end"
+                  id="toggleButton"
+                  class="ion-padding"
+                ></ion-icon>
+                <ion-popover
+                  trigger="toggleButton"
+                  trigger-action="hover"
+                  dismiss-on-select="false"
+                >
+                  <ion-content class="ion-padding">
+                    <ion-item>
+                      Dark Mode
+                      <ion-toggle
+                        slot="end"
+                        color="dark"
+                        class="ion-padding"
+                        id="lightThemeButton"
+                      ></ion-toggle>
+                    </ion-item>
+                  </ion-content>
+                </ion-popover>
+                <ion-buttons slot="end">
+                  <ion-button id="clearBtn">
+                    <ion-icon name="trash-outline" slot="start"></ion-icon>
+                    <ion-label>Clear</ion-label>
+                  </ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+
+            <ion-content> 
+              <div class="ion-padding">
+                <ion-reorder-group disabled='false' id="pets">
+                </ion-reorder-group>
+              </div>
+              <ion-modal>
+                  <ion-header>
+                    <ion-toolbar>
+                      <ion-title>Photos</ion-title>
+                      <ion-buttons slot="end">
+                        <ion-button color="medium" onclick="modal.isOpen = false">Cancel</ion-button>
+                      </ion-buttons>
+                    </ion-toolbar>
+                  </ion-header>
+                  <ion-content>
+                    <div id="imagesOfPets"></div>
+                  </ion-content>
+                </ion-modal>
+            </ion-content>
+          </div>
+        </ion-tab>
+        <ion-tab tab="add">
+          <ion-nav id="add-nav"></ion-nav>
+          <div id="add-page">
+            <ion-header>
+              <ion-toolbar class="new-colour">
+                <ion-title>
+                  <ion-label
+                    ><ion-icon name="paw-outline"></ion-icon> MyPets</ion-label
+                  >
+                </ion-title>
+                <ion-buttons slot="end">
+                  <ion-button href="index.html">
+                    <ion-icon name="list-outline" slot="start"></ion-icon>
+                    <ion-label>View</ion-label>
+                  </ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+      
+            <ion-content>
+              <h2 class="ion-padding-start">New Pet</h2>
+              <ion-list>
+                <ion-item>
+                  <ion-input
+                    id="name"
+                    placeholder="Pet name (ex: Spencer)"
+                  ></ion-input>
+                </ion-item>
+      
+                <ion-item>
+                  <ion-select id="type" slot="start" placeholder="Select Pet Type">
+                    <ion-select-option value='<ion-icon name="paw"></ion-icon>'
+                      >Dog</ion-select-option
+                    >
+                    <ion-select-option value='<ion-icon name="logo-octocat"></ion-icon>'>Cat</ion-select-option>
+                    <ion-select-option value='<ion-icon name="logo-twitter"></ion-icon>'">Bird</ion-select-option>
+                    <ion-select-option value='<ion-icon name="fish"></ion-icon>'>Fish</ion-select-option>
+                    <ion-select-option value="Other">Other</ion-select-option>
+                  </ion-select>
+                </ion-item>
+      
+                <ion-item>
+                  <ion-input
+                    id="birthday"
+                    placeholder="Birthday/Adoption Date dd/mm/yyyy"
+                  ></ion-input>
+                </ion-item>
+      
+                <ion-item>
+                  <ion-textarea
+                  id="medicalHistory"
+                    placeholder="Medical history (Optional)"
+                  ></ion-textarea>
+                </ion-item>
+      
+                <ion-button
+                  id="saveButton"
+                  class="new-colour ion-padding"
+                  expand="full"
+                  style="border-radius: 5px;"
+                >
+                  <ion-icon name="save-outline" slot="start"></ion-icon>
+                  <ion-label>Save Pet</ion-label>
+                </ion-button>
+              </ion-list>
+            </ion-content>
+          </div>
+        </ion-tab>
+        <ion-tab tab="about">
+          <ion-nav id="about-nav"></ion-nav>
+          <div id="about-page">
+            <ion-header>
+              <ion-toolbar class="new-colour">
+                <ion-title>
+                  <ion-icon name="paw-outline"></ion-icon> MyPets
+                </ion-title>               
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <div class="aboutPage" style="margin-top: 6rem;">
+                <img src="img/MyPetPro.png" alt="AppLogo">
+                <h2>Welcome to MyPetsPro where you <br> can keep a list of your pets</h2>
+                <h2>Yasin Surucu</h2>
+              </div>
+            </ion-content>
+          </div>
+        </ion-tab>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button tab="list">
+            <ion-icon name="list-outline"></ion-icon>
+            List
+          </ion-tab-button>
+          <ion-tab-button tab="add">
+            <ion-icon name="add-circle-outline"></ion-icon>
+            Add
+          </ion-tab-button>
+          <ion-tab-button tab="about">
+            <ion-icon name="help-circle-outline"></ion-icon>
+            About
+          </ion-tab-button>
+         
+        </ion-tab-bar>
+      </ion-tabs>
+   
+
+    </ion-app>
+    <script> var modal = document.querySelector('ion-modal');</script>
+    <script src="js/index.js"></script>
+    <script src="js/add.js"></script>
+    <script src="js/list.js"></script>
+    <script src="cordova.js"></script>
+
+  </body>
+</html>
+
+<!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button class="new-fab-colour" href="add.html">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab> -->
